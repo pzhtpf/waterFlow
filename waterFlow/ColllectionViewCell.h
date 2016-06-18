@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIFont+Scale.h"
 
 @interface ColllectionViewCell : UICollectionViewCell
 
 @property (strong, nonatomic) UILabel* titleLabel;
-@property(strong,nonatomic) UILabel *details;
+@property(strong,nonatomic) UITextView *details;
 
 -(void)setLayout:(NSDictionary *)data;
 

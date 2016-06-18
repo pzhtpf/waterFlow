@@ -6,23 +6,26 @@
 //  Copyright © 2016年 roctian. All rights reserved.
 //
 
-#import "YTSSCollectionView.h"
+#import "YTSSCollectionBView.h"
 #import "ColllectionViewCell.h"
+#import "UICollectionView+ReloadDataFinished.h"
 #import "UIFont+Scale.h"
 
-@interface YTSSCollectionView ()
+@interface YTSSCollectionBView ()
 
 @property(strong,nonatomic)NSMutableArray *heightData;
 @property(strong,nonatomic)NSArray *detailsData;
-@property(strong,nonatomic)WaterFlowLayout *layout;
+@property(strong,nonatomic)BWaterflowLayout * layout;
 
 @end
 
-@implementation YTSSCollectionView
+@implementation YTSSCollectionBView
 
 -(id)initWithFrame:(CGRect)frame{
-
-    _layout = [[WaterFlowLayout alloc] init];
+    
+    _layout = [[BWaterflowLayout alloc]init];
+    
+    _layout.delegate = self;
     
     self = [super initWithFrame:frame collectionViewLayout:_layout];
     
@@ -34,10 +37,6 @@
          self.allowsSelection = YES;
         
         [self setBackgroundColor:[UIColor whiteColor]];
-        
-        
-        [((WaterFlowLayout*)self.collectionViewLayout) setFlowdatasource:self];
-        [((WaterFlowLayout*)self.collectionViewLayout) setFlowdelegate:self];
         
         self.delegate = self;
         self.dataSource = self;
@@ -52,18 +51,18 @@
     _data = @[@"数量",@"生产日期",@"可售区域",@"货源地",@"手续",@"发票类型"];
 //    _detailsData = @[@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout.",@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout.",@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout."];
     
-    _detailsData =  @[@"1",@"6个月以内",@"售上海",@"售除双江拉祜族,售除双江拉祜族",@"3天内寄出",@"店票"];
+    _detailsData =  @[@"1",@"6个月以内",@"售上海",@"售除双江拉祜族,售除双江拉祜族,售除双江拉祜族",@"3天内寄出",@"店票"];
     
     
     NSMutableArray  *tempHeightData = [NSMutableArray new];
     
-    int twoWidth = (self.frame.size.width/2)-60;
+    int twoWidth = (self.frame.size.width/2)-30;
 
     
      UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, twoWidth, 1)];
-     textView.contentInset = UIEdgeInsetsMake(-8,-5, -8, -5);
+     textView.contentInset = UIEdgeInsetsMake(-8,-5, -8,-5 );
      textView.font = [UIFont systemFontOfScaleSize:14.5f];
-        
+    
         for (NSString *string in _detailsData) {
             
             textView.frame = CGRectMake(0, 0, twoWidth, 1);
@@ -74,16 +73,17 @@
             
             CGFloat height = textView.frame.size.height-16;
             
-            CGFloat originHeight = 48;
+//             NSLog(@"cellHeight:%f",height);
             
-            height = originHeight + height + 10.0f;
+            int originHeight = 48;
             
-            height = ceilf(height<90?90:height);
+            height = originHeight + height + 10;
             
-             NSLog(@"cellHeight:%f",height);
+            height = height<90?90:height;
             
             [tempHeightData addObject:@(height)];
             
+           
         }
 
 
@@ -92,7 +92,7 @@
           
           [self reloadDataAndWait:^(){
           
-              [self getSelfHeight];
+//              [self getSelfHeight];
           
           }];
     
@@ -115,7 +115,9 @@
 {
     ColllectionViewCell *cell;
     
-    int  positionType = [self getPositionType:(int)indexPath.item];
+//    int  positionType = [self getPositionType:(int)indexPath.item];
+    
+    int  positionType = indexPath.item%2;
     
     if(positionType ==0)
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ID_LEFT" forIndexPath:indexPath];
@@ -166,61 +168,57 @@
 }
 
 #pragma mark-  UICollecitonViewDelegateWaterFlowLayout
-- (CGFloat)flowLayout:(WaterFlowLayout *)flowView heightForRowAtIndex:(int)index
-{
+#pragma mark - <BWaterflowLayoutDelegate>
+
+-(CGFloat)waterflowLayout:(BWaterflowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth {
+    
     return [_heightData[index] floatValue];
 }
-
-#pragma mark- UICollectionViewDatasourceFlowLayout
-- (NSInteger)numberOfColumnsInFlowLayout:(WaterFlowLayout*)flowlayout
-{
+//瀑布流列数
+- (CGFloat)columnCountInWaterflowLayout:(BWaterflowLayout *)waterflowLayout {
     return 2;
 }
-
--(void)getSelfHeight{
+- (CGFloat)columnMarginInWaterflowLayout:(BWaterflowLayout *)waterflowLayout {
+    return 10;
     
-    NSMutableArray *allHeight = [NSMutableArray new];
-    
-    for (NSArray *items in _layout.cellHeight) {
-        
-        [allHeight addObjectsFromArray:items];
-    }
-    
-    for (NSNumber *number in allHeight) {
-        
-        float temp  = [number floatValue];
-        
-        if(temp>_maxHeight)
-            _maxHeight = temp;
-    }
-    
-    if([_ytssCollectionViewDelegate respondsToSelector:@selector(returnYTSSCollectionViewHeight:)])
-        [_ytssCollectionViewDelegate returnYTSSCollectionViewHeight:_maxHeight];
 }
+- (CGFloat)rowMarginInWaterflowLayout:(BWaterflowLayout *)waterflowLayout {
+    return 10;
+    
+}
+- (UIEdgeInsets)edgeInsetsInWaterflowLayout:(BWaterflowLayout *)waterflowLayout {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+//-(void)getSelfHeight{
+//    
+//    NSMutableArray *allHeight = [NSMutableArray new];
+//    
+//    for (NSArray *items in _layout.cellHeight) {
+//        
+//        [allHeight addObjectsFromArray:items];
+//    }
+//    
+//    for (NSNumber *number in allHeight) {
+//        
+//        float temp  = [number floatValue];
+//        
+//        if(temp>_maxHeight)
+//            _maxHeight = temp;
+//    }
+//
+//    [UIView animateWithDuration:0.5 animations:^(){
+//    
+//        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, _maxHeight);
+//
+//    
+//    }];
+//    
+//    if([_ytssCollectionViewDelegate respondsToSelector:@selector(returnYTSSCollectionViewHeight:)])
+//        [_ytssCollectionViewDelegate returnYTSSCollectionViewHeight:_maxHeight];
+//}
 -(CGFloat)maxHeight{
 
     return _maxHeight;
-}
-
--(int)getPositionType:(int)item{
-
-    if(_layout.cellIndex.count==0)
-        return 0;
-    
-    for (int i =0; i<_layout.cellIndex.count; i++) {
-
-    
-        NSArray *leftArray = _layout.cellIndex[i];
-        
-        for (NSNumber *number in leftArray) {
-            
-            float temp  = [number floatValue];
-            
-            if(temp == item)
-                return i;
-        }
-    }
-    
-    return 0;
 }
 @end

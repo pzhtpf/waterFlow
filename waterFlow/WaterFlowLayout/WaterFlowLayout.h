@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UICollectionView+ReloadDataFinished.h"
 
 @class WaterFlowLayout;
 

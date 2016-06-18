@@ -12,10 +12,14 @@
 		9201B2CE1D1394B3005D8380 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9201B2CC1D1394B3005D8380 /* Main.storyboard */; };
 		9201B2D01D1394B3005D8380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9201B2CF1D1394B3005D8380 /* Assets.xcassets */; };
 		9201B2D31D1394B3005D8380 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9201B2D11D1394B3005D8380 /* LaunchScreen.storyboard */; };
-		9201B2DD1D139507005D8380 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201B2DC1D139507005D8380 /* WaterFlowLayout.m */; };
 		9201B2E21D1395B1005D8380 /* ColllectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201B2E11D1395B1005D8380 /* ColllectionViewCell.m */; };
 		9201B2E51D139D33005D8380 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201B2E41D139D33005D8380 /* ViewController.m */; };
 		9201B2E81D139D65005D8380 /* YTSSCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9201B2E71D139D65005D8380 /* YTSSCollectionView.m */; };
+		BA7F95471D15170F005BF144 /* UICollectionView+ReloadDataFinished.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F95441D15170F005BF144 /* UICollectionView+ReloadDataFinished.m */; };
+		BA7F95481D15170F005BF144 /* WaterFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F95461D15170F005BF144 /* WaterFlowLayout.m */; };
+		BA7F954C1D151E48005BF144 /* BWaterflowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F954B1D151E48005BF144 /* BWaterflowLayout.m */; };
+		BA7F954F1D151E88005BF144 /* YTSSCollectionBView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F954E1D151E88005BF144 /* YTSSCollectionBView.m */; };
+		BA7F95521D152E17005BF144 /* UIFont+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = BA7F95511D152E17005BF144 /* UIFont+Scale.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,13 +32,21 @@
 		9201B2D21D1394B3005D8380 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9201B2D41D1394B3005D8380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9201B2DA1D139507005D8380 /* ColllectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColllectionViewCell.h; sourceTree = "<group>"; };
-		9201B2DB1D139507005D8380 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
-		9201B2DC1D139507005D8380 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
 		9201B2E11D1395B1005D8380 /* ColllectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColllectionViewCell.m; sourceTree = "<group>"; };
 		9201B2E31D139D33005D8380 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9201B2E41D139D33005D8380 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9201B2E61D139D65005D8380 /* YTSSCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTSSCollectionView.h; sourceTree = "<group>"; };
 		9201B2E71D139D65005D8380 /* YTSSCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTSSCollectionView.m; sourceTree = "<group>"; };
+		BA7F95431D15170F005BF144 /* UICollectionView+ReloadDataFinished.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+ReloadDataFinished.h"; sourceTree = "<group>"; };
+		BA7F95441D15170F005BF144 /* UICollectionView+ReloadDataFinished.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+ReloadDataFinished.m"; sourceTree = "<group>"; };
+		BA7F95451D15170F005BF144 /* WaterFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterFlowLayout.h; sourceTree = "<group>"; };
+		BA7F95461D15170F005BF144 /* WaterFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterFlowLayout.m; sourceTree = "<group>"; };
+		BA7F954A1D151E48005BF144 /* BWaterflowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BWaterflowLayout.h; sourceTree = "<group>"; };
+		BA7F954B1D151E48005BF144 /* BWaterflowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BWaterflowLayout.m; sourceTree = "<group>"; };
+		BA7F954D1D151E88005BF144 /* YTSSCollectionBView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTSSCollectionBView.h; sourceTree = "<group>"; };
+		BA7F954E1D151E88005BF144 /* YTSSCollectionBView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTSSCollectionBView.m; sourceTree = "<group>"; };
+		BA7F95501D152E17005BF144 /* UIFont+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Scale.h"; sourceTree = "<group>"; };
+		BA7F95511D152E17005BF144 /* UIFont+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Scale.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +83,14 @@
 				9201B2C71D1394B3005D8380 /* AppDelegate.m */,
 				9201B2DA1D139507005D8380 /* ColllectionViewCell.h */,
 				9201B2E11D1395B1005D8380 /* ColllectionViewCell.m */,
-				9201B2DB1D139507005D8380 /* WaterFlowLayout.h */,
-				9201B2DC1D139507005D8380 /* WaterFlowLayout.m */,
 				9201B2E31D139D33005D8380 /* ViewController.h */,
 				9201B2E41D139D33005D8380 /* ViewController.m */,
 				9201B2E61D139D65005D8380 /* YTSSCollectionView.h */,
 				9201B2E71D139D65005D8380 /* YTSSCollectionView.m */,
+				BA7F954D1D151E88005BF144 /* YTSSCollectionBView.h */,
+				BA7F954E1D151E88005BF144 /* YTSSCollectionBView.m */,
+				BA7F95491D151E48005BF144 /* BWaterflowLayout */,
+				BA7F95421D15170F005BF144 /* WaterFlowLayout */,
 				9201B2CC1D1394B3005D8380 /* Main.storyboard */,
 				9201B2CF1D1394B3005D8380 /* Assets.xcassets */,
 				9201B2D11D1394B3005D8380 /* LaunchScreen.storyboard */,
@@ -92,6 +106,28 @@
 				9201B2C41D1394B3005D8380 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA7F95421D15170F005BF144 /* WaterFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F95431D15170F005BF144 /* UICollectionView+ReloadDataFinished.h */,
+				BA7F95441D15170F005BF144 /* UICollectionView+ReloadDataFinished.m */,
+				BA7F95501D152E17005BF144 /* UIFont+Scale.h */,
+				BA7F95511D152E17005BF144 /* UIFont+Scale.m */,
+				BA7F95451D15170F005BF144 /* WaterFlowLayout.h */,
+				BA7F95461D15170F005BF144 /* WaterFlowLayout.m */,
+			);
+			path = WaterFlowLayout;
+			sourceTree = "<group>";
+		};
+		BA7F95491D151E48005BF144 /* BWaterflowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F954A1D151E48005BF144 /* BWaterflowLayout.h */,
+				BA7F954B1D151E48005BF144 /* BWaterflowLayout.m */,
+			);
+			path = BWaterflowLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,12 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA7F954C1D151E48005BF144 /* BWaterflowLayout.m in Sources */,
 				9201B2E51D139D33005D8380 /* ViewController.m in Sources */,
-				9201B2DD1D139507005D8380 /* WaterFlowLayout.m in Sources */,
+				BA7F954F1D151E88005BF144 /* YTSSCollectionBView.m in Sources */,
+				BA7F95521D152E17005BF144 /* UIFont+Scale.m in Sources */,
 				9201B2C81D1394B3005D8380 /* AppDelegate.m in Sources */,
 				9201B2E81D139D65005D8380 /* YTSSCollectionView.m in Sources */,
 				9201B2E21D1395B1005D8380 /* ColllectionViewCell.m in Sources */,
+				BA7F95481D15170F005BF144 /* WaterFlowLayout.m in Sources */,
 				9201B2C51D1394B3005D8380 /* main.m in Sources */,
+				BA7F95471D15170F005BF144 /* UICollectionView+ReloadDataFinished.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +360,7 @@
 				9201B2D91D1394B3005D8380 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

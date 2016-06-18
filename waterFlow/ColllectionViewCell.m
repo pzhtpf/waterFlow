@@ -42,16 +42,21 @@
         
         _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 26, frame.size.width-30, 12)];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
-        _titleLabel.font = [UIFont systemFontOfSize:12.0f];
+        _titleLabel.font = [UIFont systemFontOfScaleSize:12.0f];
         _titleLabel.textColor = UIColorFromRGB(0x606073);
         [self.contentView addSubview:_titleLabel];
         
         
-        _details = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLabel.frame)+10, frame.size.width-30, frame.size.height-CGRectGetMaxY(_titleLabel.frame)-20)];
-        _details.numberOfLines = 0;
+        _details = [[UITextView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(_titleLabel.frame)+10, frame.size.width-30, frame.size.height-CGRectGetMaxY(_titleLabel.frame)-20)];
+
         _details.textColor = UIColorFromRGB(0x302F37);
-        _details.font = [UIFont systemFontOfSize:15.0f];
+        _details.font = [UIFont systemFontOfScaleSize:15.0f];
         
+        _details.contentInset = UIEdgeInsetsMake(-8,-5,-8, -5);
+        _details.editable = NO;
+        _details.userInteractionEnabled = NO;
+        
+//        [_details setBackgroundColor:[UIColor greenColor]];
         
         [self.contentView addSubview:_details];
 
@@ -64,7 +69,7 @@
     
     _titleLabel.frame = CGRectMake(15, 26, _frame.size.width-30, 12);
     
-    int tempHeight = height-CGRectGetMaxY(_titleLabel.frame)-36;
+    int tempHeight = height-CGRectGetMaxY(_titleLabel.frame)-20;
     
     _details.frame = CGRectMake(15, CGRectGetMaxY(_titleLabel.frame)+10, _frame.size.width-30,tempHeight);
 
@@ -89,15 +94,20 @@
         fromX  =  self.contentView.frame.size.width;
     }
 
-    CATransform3D transform = CATransform3DIdentity;
-    transform = CATransform3DTranslate(transform,fromX, 0.0f, 0.0f);
-    self.contentView.layer.transform = transform;
+//    CATransform3D transform = CATransform3DIdentity;
+//    transform = CATransform3DTranslate(transform,fromX, 0.0f, 0.0f);
+//    self.contentView.layer.transform = transform;
+    
+    self.contentView.frame = CGRectMake(fromX, self.contentView.frame.origin.y, self.contentView.frame.size.width, self.contentView.frame.size.height);
     
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.contentView.layer.transform = CATransform3DIdentity;
-                             self.contentView.alpha = 1;
-                             self.contentView.layer.shadowOffset = CGSizeMake(0, 0);
+//                             self.contentView.layer.transform = CATransform3DIdentity;
+//                             self.contentView.alpha = 1;
+//                             self.contentView.layer.shadowOffset = CGSizeMake(0, 0);
+                             
+                              self.contentView.frame = CGRectMake(0, self.contentView.frame.origin.y, self.contentView.frame.size.width, self.contentView.frame.size.height);
+                             
                          } completion:^(BOOL finished) {
                          }];
 
