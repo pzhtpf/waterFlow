@@ -31,8 +31,8 @@
     
     if(self){
     
-        [self registerClass:[ColllectionViewCell class] forCellWithReuseIdentifier:@"CELL_ID_LEFT"];
-        [self registerClass:[ColllectionViewCell class] forCellWithReuseIdentifier:@"CELL_ID_RIGHT"];
+        [self registerClass:[ColllectionViewCell class] forCellWithReuseIdentifier:@"CELL_ID_LEFT_B"];
+        [self registerClass:[ColllectionViewCell class] forCellWithReuseIdentifier:@"CELL_ID_RIGHT_B"];
         
          self.allowsSelection = YES;
         
@@ -75,7 +75,7 @@
             
 //             NSLog(@"cellHeight:%f",height);
             
-            int originHeight = 48;
+            int originHeight = 45;
             
             height = originHeight + height + 10;
             
@@ -120,10 +120,10 @@
     int  positionType = indexPath.item%2;
     
     if(positionType ==0)
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ID_LEFT" forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ID_LEFT_B" forIndexPath:indexPath];
     
     if(positionType ==1)
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ID_RIGHT" forIndexPath:indexPath];
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CELL_ID_RIGHT_B" forIndexPath:indexPath];
     
     cell.titleLabel.text = _data[indexPath.item];
     cell.details.text = _detailsData[indexPath.item];

@@ -40,7 +40,7 @@
         
         [self.contentView addSubview:_rightLine];
         
-        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 26, frame.size.width-30, 12)];
+        _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 23, frame.size.width-20, 12)];
         _titleLabel.textAlignment = NSTextAlignmentLeft;
         _titleLabel.font = [UIFont systemFontOfScaleSize:12.0f];
         _titleLabel.textColor = UIColorFromRGB(0x606073);
@@ -67,11 +67,11 @@
 
     float height = [[data valueForKey:@"height"] floatValue];
     
-    _titleLabel.frame = CGRectMake(15, 26, _frame.size.width-30, 12);
+    _titleLabel.frame = CGRectMake(15, 23, _frame.size.width-30, 12);
     
     int tempHeight = height-CGRectGetMaxY(_titleLabel.frame)-20;
     
-    _details.frame = CGRectMake(15, CGRectGetMaxY(_titleLabel.frame)+10, _frame.size.width-30,tempHeight);
+    _details.frame = CGRectMake(15, CGRectGetMaxY(_titleLabel.frame)+10, _frame.size.width-20,tempHeight);
 
     int positionType = [[data valueForKey:@"positionType"] intValue];
     

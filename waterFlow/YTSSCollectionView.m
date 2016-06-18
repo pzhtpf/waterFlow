@@ -52,16 +52,16 @@
     _data = @[@"数量",@"生产日期",@"可售区域",@"货源地",@"手续",@"发票类型"];
 //    _detailsData = @[@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout.",@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout.",@"The WaterflowView(New) is based on a new layout pattern i.e. whenever to place a new cell, find the shortest column and insert the cell into the column, rather than layout by rows in column in the old one. To imply the new one in project, just change the name of file... note that only one file, WaterflowView or WaterflowView(new), should exist in a project Yet if the images for display are mostly of normal size (not super long), the WaterflowView(old) is still recommended.",@"WaterFlowLayout is UICollectionViewLayout specially for the UICollectionView in iOS6. Note that this is not a subclass of UICollectionViewFlowLayout."];
     
-    _detailsData =  @[@"1",@"6个月以内",@"售上海",@"售除双江拉祜族,售除双江拉祜族",@"3天内寄出",@"店票"];
+    _detailsData =  @[@"1",@"6个月以内",@"售上海",@"售除双江拉祜族,售除双江拉祜族,",@"3天内寄出",@"店票"];
     
     
     NSMutableArray  *tempHeightData = [NSMutableArray new];
     
-    int twoWidth = (self.frame.size.width/2)-60;
+    int twoWidth = (self.frame.size.width/2)-50;
 
     
      UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, twoWidth, 1)];
-     textView.contentInset = UIEdgeInsetsMake(-8,-5, -8, -5);
+     textView.contentInset = UIEdgeInsetsMake(-8,-5, -8, -10);
      textView.font = [UIFont systemFontOfScaleSize:14.5f];
         
         for (NSString *string in _detailsData) {
@@ -74,7 +74,7 @@
             
             CGFloat height = textView.frame.size.height-16;
             
-            CGFloat originHeight = 48;
+            CGFloat originHeight = 45;
             
             height = originHeight + height + 10.0f;
             
